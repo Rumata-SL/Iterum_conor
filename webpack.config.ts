@@ -1,11 +1,11 @@
-const path = require('path');
-const HTMLWebpackPlugin = require('html-webpack-plugin')
-const webpack = require('webpack');
+import  path from 'path';
+import  webpack from'webpack';
+import HTMLWebpackPlugin from 'html-webpack-plugin';
 
 const Mode = 'development';
 // const Mode = 'production';
 
-module.exports = {
+const config: webpack.Configuration = {
     mode: Mode,
     entry: path.resolve(__dirname, 'src', 'index.ts'),
     output:{
@@ -23,7 +23,7 @@ module.exports = {
         rules: [
             {
                 test: /\.tsx?$/,
-                use: 'ts-loader', 
+                use: 'ts-loader',
                 exclude: /node_modules/,
             },
         ],
@@ -32,3 +32,5 @@ module.exports = {
         extensions: ['.tsx', '.ts', '.js'],
     },
 }
+
+export default config

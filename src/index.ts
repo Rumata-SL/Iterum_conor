@@ -1,5 +1,3 @@
-export const fn = (num: number)=>{
-    console.log('test');
-    return num + 1;
-}
+import { fn } from './teststest';
 
+fn(1);
