@@ -3,6 +3,7 @@ export interface BuildPaths {
     entry: string;
     build:string;
     html:string;
+    src:string
 }
 
 export interface BuildEnv {
@@ -12,7 +13,7 @@ export interface BuildEnv {
 
 export interface BuildOptions {
     mode : BuildMode;
-    path : BuildPaths;
+    paths : BuildPaths;
     isDev: boolean;
     port:number;
 }
