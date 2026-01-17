@@ -3,10 +3,10 @@ import webpack from "webpack";
 import {BuildOptions} from "./types/config";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
-export function buildPlugins  ({path}: BuildOptions):webpack.WebpackPluginInstance[]  {
+export function buildPlugins  ({paths}: BuildOptions):webpack.WebpackPluginInstance[]  {
     return [
             new HTMLWebpackPlugin({
-                template: path.html,
+                template: paths.html,
             }),
         new webpack.ProgressPlugin(),
         new MiniCssExtractPlugin({
