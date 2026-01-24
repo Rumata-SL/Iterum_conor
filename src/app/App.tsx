@@ -1,5 +1,5 @@
-import React, {Suspense} from 'react';
-import  "./styles/index.scss"
+import React, {Suspense} from "react";
+import "./styles/index.scss";
 import {classNames} from "shared/lib/classNames/classNames";
 import {UseTheme} from "app/providers/ThemeProvider";
 import {AppRouter} from "app/providers/router";
@@ -7,16 +7,15 @@ import {Navbar} from "widgets/Navbar";
 import {Sidebar} from "widgets/Sidebar";
 
 export const App = () => {
-const  { theme} = UseTheme();
+	const {theme} = UseTheme();
 
-    return (
-        <div className={classNames("app", {}, [theme] )}>
-            <Suspense fallback={''}><Navbar/>
-                <div className="content-page">
-                    <Sidebar/>
-                    <AppRouter/>
-                </div>
-            </Suspense>
-        </div>
-    );
+	return (
+		<div className={classNames("app", {}, [theme])}><Suspense fallback={""}><Navbar/>
+			<div className="content-page">
+				<Sidebar/>
+				<AppRouter/>
+			</div>
+		</Suspense>
+		</div>
+	);
 };
