@@ -9,15 +9,15 @@ export interface NavbarProps {
 }
 
 export const Navbar = ({className}: NavbarProps) => {
-	const {t} = useTranslation("nav");
-	return (
-		<div className={classNames(cls.Navbar, {}, [className])}>
+    const {t} = useTranslation("nav");
+    return (
+        <div className={classNames(cls.Navbar, {}, [className])}>
 
-			<div className={classNames(cls.links)}>
-				<AppLink theme={AppLinkTheme.SECONDARY} className={classNames(cls.mainLink)}
-					to={RoutePath.main}>{t("Главная страница")}</AppLink>
-				<AppLink theme={AppLinkTheme.SECONDARY} to={RoutePath.about}>{t("О сайте")}</AppLink>
-			</div>
-		</div>
-	);
+            <div className={classNames(cls.links)}>
+                <AppLink theme={AppLinkTheme.SECONDARY} className={classNames(cls.mainLink)}
+                    to={RoutePath.main}>{t("Главная страница")}</AppLink>
+                <AppLink theme={AppLinkTheme.SECONDARY} to={RoutePath.about}>{t("О сайте")}</AppLink>
+            </div>
+        </div>
+    );
 };
