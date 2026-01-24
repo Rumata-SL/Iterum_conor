@@ -1,0 +1,19 @@
+{
+  "extends": "stylelint-config-standard",
+  "customSyntax": "postcss-scss",
+  "rules": {
+    "indentation": [
+      4,
+      "tab"
+    ],
+    "selector-class-pattern": null,
+    "declaration-colon-space-after": [
+      2,
+      "always-single-line"
+    ],
+    "declaration-colon-newline-after": [
+      2,
+      "always-multi-line"
+    ]
+  }
+}
