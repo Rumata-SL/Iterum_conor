@@ -10,13 +10,25 @@
     "esModuleInterop": true,
     "baseUrl": ".",
     "paths": {
-      "*": ["./src/*"],
+      "*": [
+        "./src/*"
+      ]
     },
     "allowSyntheticDefaultImports": true
   },
   "ts-node": {
     "compilerOptions": {
-      "module": "CommonJS"
-    }
+      "module": "CommonJS",
+      "types": [
+        "vitest/globals",
+        "@testing-library/jest-dom",
+        "node"
+      ]
+    },
+    "include": [
+      "./config/jest/setupTests.ts",
+      "./src/**/*.ts",
+      "./src/**/*.tsx"
+    ]
   }
 }
