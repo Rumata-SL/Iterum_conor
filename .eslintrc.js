@@ -16,8 +16,13 @@ module.exports = {
                 "node": true
             },
             "files": [
-                ".eslintrc.{js,cjs}"
+                ".eslintrc.{js,cjs}",
+                "**/src/**/*.test.{ts,tsx}"
+
             ],
+            rules: {
+                "i18next/no-literal-string": "off"
+            },
             "parserOptions": {
                 "sourceType": "script"
             }
@@ -56,6 +61,6 @@ module.exports = {
         "no-unused-vars": "warn",
         "@typescript-eslint/no-unused-vars": "warn",
         "react/no-deprecated": "off",
-        "i18next/no-literal-string": ["error", {"markupOnly": true}]
+        "i18next/no-literal-string": ["error", {"markupOnly": true, "ignoreAttribute": ["data-testid"]}]
     }
 };
