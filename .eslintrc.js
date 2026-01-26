@@ -17,7 +17,8 @@ module.exports = {
             },
             "files": [
                 ".eslintrc.{js,cjs}",
-                "**/src/**/*.test.{ts,tsx}"
+                "**/src/**/*.test.{ts,tsx}",
+                "config/storybook/**/*.js"
 
             ],
             rules: {
