@@ -34,6 +34,11 @@ jobs:
         run: npm run test:unit
       - name: build storybook
         run: npm run storybook:build
+      - name: Downgrade Docker/runc for compatibility
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y docker-ce=5:20.10.17~3-0~ubuntu-$(lsb_release -cs) docker-ce-cli=5:20.10.17~3-0~ubuntu-$(lsb_release -cs) containerd.io runc=2:1.0.3-0ubuntu1~20.04.2
+          sudo systemctl restart docker
       - name: screenshot testing
         run: npm run test:ui:ci
 
