@@ -14,7 +14,10 @@
         "./src/*"
       ]
     },
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "types": [
+      "node"
+    ]
   },
   "ts-node": {
     "compilerOptions": {
