@@ -11,7 +11,7 @@
     "lint:scss": "npx stylelint \"**/*.scss\"",
     "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
     "test:unit": "jest --config ./config/jest/jest.config.ts",
-    "test:un": "npx loki test",
+    "test:ui": "npx loki test",
     "test:un:ok": "npx loki approve",
     "storybook": "start-storybook -p 6006 -c ./config/storybook",
     "storybook:build": "build-storybook -c ./config/storybook"
@@ -106,5 +106,8 @@
         "preset": "iPhone 7"
       }
     }
+  },
+  "engines": {
+    "node": ">=18"
   }
 }

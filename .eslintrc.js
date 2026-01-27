@@ -40,9 +40,12 @@ module.exports = {
         "i18next"
     ],
     "rules": {
-        "indent": [
-            "error",
-            4
+        "react/jsx-indent": [2, 4],
+        "react/jsx-indent-props": [2, 4],
+        indent: [2, 4],
+        "react/jsx-filename-extension": [
+            2,
+            {extensions: [".js", ".jsx", ".tsx"]},
         ],
         "no-tabs": 0,
         "linebreak-style": [
@@ -62,6 +65,7 @@ module.exports = {
         "no-unused-vars": "warn",
         "@typescript-eslint/no-unused-vars": "warn",
         "react/no-deprecated": "off",
-        "i18next/no-literal-string": ["error", {"markupOnly": true, "ignoreAttribute": ["data-testid"]}]
+        "i18next/no-literal-string": ["error", {"markupOnly": true, "ignoreAttribute": ["data-testid"]}],
+        "max-len": ["error", {ignoreComments: true, code: 300}],
     }
 };

@@ -14,13 +14,15 @@
         "./src/*"
       ]
     },
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "types": [
+      "node"
+    ]
   },
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS",
       "types": [
-        "vitest/globals",
         "@testing-library/jest-dom",
         "node"
       ]
