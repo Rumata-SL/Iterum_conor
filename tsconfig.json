@@ -20,7 +20,6 @@
     "compilerOptions": {
       "module": "CommonJS",
       "types": [
-        "vitest/globals",
         "@testing-library/jest-dom",
         "node"
       ]
