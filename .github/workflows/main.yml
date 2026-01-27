@@ -13,10 +13,6 @@ jobs:
         node-version: [ 18.x ]
 
     steps:
-      - name: Set up Docker Engine version 20.10.24 (compatible)
-        uses: docker/setup-docker-engine@v1
-        with:
-          docker-engine-version: '20.10.24'
       - uses: actions/checkout@v2
       - name: Setup Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
