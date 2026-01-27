@@ -9,16 +9,7 @@
 .Loader,
 .Loader::before,
 .Loader::after {
-  background: radial-gradient(
-                  closest-side at 50% 12.5%,
-                  var(--inverted-bg-color) 96%,
-                  #0000
-  ) 50% 0/20% 80% repeat-y,
-  radial-gradient(
-                  closest-side at 12.5% 50%,
-                  var(--inverted-bg-color) 96%,
-                  #0000
-  ) 0 50%/80% 20% repeat-x;
+  background: radial-gradient(closest-side at 50% 12.5%, var(--inverted-bg-color) 96%, #0000) 50% 0/20% 80% repeat-y, radial-gradient(closest-side at 12.5% 50%, var(--inverted-bg-color) 96%, #0000) 0 50%/80% 20% repeat-x;
 }
 
 .Loader::before,
