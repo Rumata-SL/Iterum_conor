@@ -40,16 +40,8 @@ jobs:
       - name: unit testing
         run: npm run test:unit
 
+      - name: build storybook
+        run: npm run storybook:build
 
-      - name: Run screenshot tests with Loki (Docker)
-        run: |
-          docker run --rm -v "$(pwd):/src" -w /src node:18 bash -c "
-            npm install &&
-            npm run storybook:build &&
-            npx loki --requireReference --reactUri file:./storybook-static --chromeDockerImage ghcr.io/puppeteer/puppeteer:latest
-          "
-
-#      - name: build storybook
-#        run: npm run storybook:build
-#      - name: screenshot testing
-#        run: npm run test:ui:ci
+      - name: screenshot testing
+        run: npm run test:ui:ci
