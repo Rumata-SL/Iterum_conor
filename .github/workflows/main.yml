@@ -2,41 +2,26 @@ name: linting, testing, building
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on:
   push:
-    branches: [ master ]
+    brunches: [ master ]
   pull_request:
     branches: [ master, develop ]
 jobs:
   pipeline:
     runs-on: ubuntu-latest
-    # Добавляем сервис Docker для корректной работы Loki
-    services:
-      docker:
-        image: docker:dind
-        options: --privileged
     strategy:
       matrix:
         node-version: [ 18.x ]
 
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup Docker
-        run: |
-          # Проверяем версию Docker
-          docker --version
-          # Создаем сеть для контейнеров, если нужно
-          docker network create loki-network || true
-
+      - uses: actions/checkout@v2
       - name: Setup Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-
       - name: Check Node.js version
         run: |
           node -v
           npm -v
-
       - name: install modules
         run: npm install
 
@@ -52,22 +37,14 @@ jobs:
       - name: unit testing
         run: npm run test:unit
 
+      - name: Install Chrome for Loki (chrome.app)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable
+
       - name: build storybook
         run: npm run storybook:build
 
-      # Кэширование образов Loki
-      - name: Cache Loki images
-        uses: actions/cache@v4
-        with:
-          path: /tmp/.loki
-          key: ${{ runner.os }}-loki-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-loki-
-
-      - name: Run Loki screenshot tests
+      - name: screenshot testing
         run: npm run test:ui:ci
-        env:
-          CI: true
-          # Переменные для Docker внутри Docker (dind)
-          DOCKER_HOST: tcp://localhost:2375
-          DOCKER_TLS_CERTDIR: ""
+
