@@ -8,6 +8,11 @@ on:
 jobs:
   pipeline:
     runs-on: ubuntu-latest
+    # Добавляем сервис Docker для корректной работы Loki
+    services:
+      docker:
+        image: docker:dind
+        options: --privileged
     strategy:
       matrix:
         node-version: [ 18.x ]
@@ -16,7 +21,11 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Setup Docker
-        uses: docker/setup-buildx-action@v3
+        run: |
+          # Проверяем версию Docker
+          docker --version
+          # Создаем сеть для контейнеров, если нужно
+          docker network create loki-network || true
 
       - name: Setup Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
@@ -46,9 +55,7 @@ jobs:
       - name: build storybook
         run: npm run storybook:build
 
-      - name: Setup Loki
-        uses: docker/setup-buildx-action@v3
-
+      # Кэширование образов Loki
       - name: Cache Loki images
         uses: actions/cache@v4
         with:
@@ -61,3 +68,6 @@ jobs:
         run: npm run test:ui:ci
         env:
           CI: true
+          # Переменные для Docker внутри Docker (dind)
+          DOCKER_HOST: tcp://localhost:2375
+          DOCKER_TLS_CERTDIR: ""
