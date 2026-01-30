@@ -2,7 +2,7 @@ name: linting, testing, building
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on:
   push:
-    brunches: [ master ]
+    branches: [ master ]
   pull_request:
     branches: [ master, develop ]
 jobs:
@@ -13,9 +13,12 @@ jobs:
         node-version: [ 18.x ]
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Setup Node.js ${{ matrix.node-version }}
+      - uses: actions/checkout@v4
 
+      - name: Setup Docker
+        uses: docker/setup-buildx-action@v3
+
+      - name: Setup Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
@@ -43,5 +46,18 @@ jobs:
       - name: build storybook
         run: npm run storybook:build
 
-      - name: screenshot testing
+      - name: Setup Loki
+        uses: docker/setup-buildx-action@v3
+
+      - name: Cache Loki images
+        uses: actions/cache@v4
+        with:
+          path: /tmp/.loki
+          key: ${{ runner.os }}-loki-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-loki-
+
+      - name: Run Loki screenshot tests
         run: npm run test:ui:ci
+        env:
+          CI: true
