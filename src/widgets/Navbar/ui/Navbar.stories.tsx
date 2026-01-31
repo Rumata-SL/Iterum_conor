@@ -10,9 +10,6 @@ export default {
     argTypes: {
         backgroundColor: {control: "color"},
     },
-    // parameters: {
-    //     layout: "centered", // ← центрирует компонент по горизонтали и вертикали
-    // },
 } as ComponentMeta<typeof Navbar>;
 
 const Template: ComponentStory<typeof Navbar> = (args) => <Navbar {...args} />;
