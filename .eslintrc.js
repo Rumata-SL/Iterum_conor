@@ -2,42 +2,43 @@ module.exports = {
     "env": {
         "browser": true,
         "es2021": true,
-        "jest": true
+        "jest": true,
     },
     "extends": [
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:react/recommended",
-        "plugin:i18next/recommended"
+        "plugin:i18next/recommended",
     ],
     "overrides": [
         {
             "env": {
-                "node": true
+                "node": true,
             },
             "files": [
                 ".eslintrc.{js,cjs}",
-                "**/src/**/*.test.{ts,tsx}",
-                "config/storybook/**/*.js"
+                "**/src/**/*.{test,stories}.{ts,tsx}",
+                "config/storybook/**/*.js",
 
             ],
             rules: {
-                "i18next/no-literal-string": "off"
+                "i18next/no-literal-string": "off",
             },
             "parserOptions": {
-                "sourceType": "script"
+                "sourceType": "script",
             }
         }
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaVersion": "latest",
-        "sourceType": "module"
+        "sourceType": "module",
     },
     "plugins": [
         "@typescript-eslint",
         "react",
-        "i18next"
+        "i18next",
+        "react-hooks",
     ],
     "rules": {
         "react/jsx-indent": [2, 4],
@@ -50,15 +51,15 @@ module.exports = {
         "no-tabs": 0,
         "linebreak-style": [
             "error",
-            "unix"
+            "unix",
         ],
         "quotes": [
             "error",
-            "double"
+            "double",
         ],
         "semi": [
             "error",
-            "always"
+            "always",
         ],
         "react/react-in-jsx-scope": "off",
         "@typescript-eslint/ban-ts-comment": "warn",
@@ -66,6 +67,8 @@ module.exports = {
         "@typescript-eslint/no-unused-vars": "warn",
         "react/no-deprecated": "off",
         "i18next/no-literal-string": ["error", {"markupOnly": true, "ignoreAttribute": ["data-testid"]}],
+        "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
+        "react-hooks/exhaustive-deps": "error", // Checks effect dependencies
         "max-len": ["error", {ignoreComments: true, code: 300}],
     }
 };
