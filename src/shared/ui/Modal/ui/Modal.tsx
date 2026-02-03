@@ -37,6 +37,7 @@ export const Modal = (props: ModalProps) => {
             closeHandler();
         }
     }, [closeHandler]);
+
     const onContentClick = (e: React.MouseEvent) => {
         e.stopPropagation();
     };
