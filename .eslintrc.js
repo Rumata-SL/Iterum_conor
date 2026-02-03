@@ -70,5 +70,6 @@ module.exports = {
         "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
         "react-hooks/exhaustive-deps": "error", // Checks effect dependencies
         "max-len": ["error", {ignoreComments: true, code: 300}],
+        "@typescript-eslint/no-require-imports": "warn"
     }
 };
