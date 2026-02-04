@@ -11,7 +11,7 @@ export interface InputProps extends HTMLInputProps {
     onChange?: (value: string) => void;
 }
 
-export const Input = memo(function Input(props: InputProps) {
+export const Input = memo((props: InputProps) => {
 
     const {
         className,
@@ -75,3 +75,5 @@ export const Input = memo(function Input(props: InputProps) {
         </div>
     );
 });
+
+Input.displayName = "Input";
