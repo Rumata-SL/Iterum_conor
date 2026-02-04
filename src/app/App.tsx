@@ -6,6 +6,7 @@ import {Navbar} from "widgets/Navbar";
 import {Sidebar} from "widgets/Sidebar";
 
 export const App = () => {
+    
 
     return (
         <div className={classNames("app", {}, [])}>
