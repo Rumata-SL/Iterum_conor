@@ -7,7 +7,7 @@ type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, "value" | "onC
 
 export interface InputProps extends HTMLInputProps {
     className?: string;
-    value?: string;
+    value: string;
     onChange?: (value: string) => void;
 }
 
