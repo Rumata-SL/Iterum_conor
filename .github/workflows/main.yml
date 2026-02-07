@@ -4,7 +4,7 @@ on:
   push:
     brunches: [ master ]
   pull_request:
-    branches: [ master, develop ]
+    branches: [ master ]
 jobs:
   pipeline:
     runs-on: ubuntu-latest
