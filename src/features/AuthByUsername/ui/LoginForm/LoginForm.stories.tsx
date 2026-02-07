@@ -2,8 +2,8 @@ import {ComponentMeta, ComponentStory} from "@storybook/react";
 import {ThemeDecorator} from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import {Theme} from "app/providers/ThemeProvider";
 import React from "react";
-import {LoginForm} from "features/AuthByUsername/ui/LoginForm/LoginForm";
-import {StateDecorator} from "shared/config/storybook/StoreDecorator/StoreDecorator";
+import LoginForm from "./LoginForm";
+import {StoreDecorator} from "shared/config/storybook/StoreDecorator/StoreDecorator";
 
 export default {
     title: "features/LoginForm",
@@ -17,7 +17,7 @@ const Template: ComponentStory<typeof LoginForm> = (args) => <LoginForm {...args
 
 export const Primary = Template.bind({});
 Primary.args = {};
-Primary.decorators = [StateDecorator({
+Primary.decorators = [StoreDecorator({
     loginForm: {
         username: "admin",
         password: "123",
@@ -27,7 +27,7 @@ Primary.decorators = [StateDecorator({
 
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [StateDecorator({
+Dark.decorators = [StoreDecorator({
     loginForm: {
         username: "admin",
         password: "123",
@@ -36,7 +36,7 @@ Dark.decorators = [StateDecorator({
 
 export const WithError = Template.bind({});
 WithError.args = {};
-WithError.decorators = [StateDecorator({
+WithError.decorators = [StoreDecorator({
     loginForm: {
         username: "admin",
         password: "123",
@@ -46,7 +46,7 @@ WithError.decorators = [StateDecorator({
 
 export const Loading = Template.bind({});
 Loading.args = {};
-Loading.decorators = [StateDecorator({
+Loading.decorators = [StoreDecorator({
     loginForm: {
         isLoading: true,
     }
