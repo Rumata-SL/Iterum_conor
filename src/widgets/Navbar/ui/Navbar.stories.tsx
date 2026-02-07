@@ -3,7 +3,7 @@ import {ComponentMeta, ComponentStory} from "@storybook/react";
 import {ThemeDecorator} from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import {Theme} from "app/providers/ThemeProvider";
 import {Navbar} from "./Navbar";
-import {StateDecorator} from "shared/config/storybook/StoreDecorator/StoreDecorator";
+import {StoreDecorator} from "shared/config/storybook/StoreDecorator/StoreDecorator";
 
 export default {
     title: "widgets/Navbar",
@@ -19,7 +19,7 @@ export const NavbarLight = Template.bind({});
 NavbarLight.args = {
     children: "Navbar",
 };
-NavbarLight.decorators = [StateDecorator({
+NavbarLight.decorators = [StoreDecorator({
     user: {
         authData: undefined,
     }
@@ -30,7 +30,7 @@ NavbarDark.args = {
     children: "Navbar",
 };
 NavbarDark.decorators = [ThemeDecorator(Theme.DARK)];
-NavbarDark.decorators = [StateDecorator({
+NavbarDark.decorators = [StoreDecorator({
     user: {
         authData: undefined,
     }
@@ -41,7 +41,7 @@ NavbarLogout.args = {
     children: "Navbar",
 };
 NavbarLogout.decorators = [ThemeDecorator(Theme.DARK)];
-NavbarLogout.decorators = [StateDecorator({
+NavbarLogout.decorators = [StoreDecorator({
     user: {
         authData: {
             username: "admin",
