@@ -63,14 +63,17 @@ module.exports = {
         ],
         "react/react-in-jsx-scope": "off",
         "@typescript-eslint/ban-ts-comment": "warn",
-        "no-unused-vars": "warn",
-        "@typescript-eslint/no-unused-vars": "warn",
         "react/no-deprecated": "off",
         "i18next/no-literal-string": ["error", {"markupOnly": true, "ignoreAttribute": ["data-testid"]}],
-        "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
-        "react-hooks/exhaustive-deps": "error", // Checks effect dependencies
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "error",
         "max-len": ["error", {ignoreComments: true, code: 300}],
         "@typescript-eslint/no-require-imports": "warn",
-        "react/display-name": "warn"
+        "react/display-name": "warn",
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": ["warn", {
+            argsIgnorePattern: "^_",
+            varsIgnorePattern: "^_",
+        }]
     }
 };
