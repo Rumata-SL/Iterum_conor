@@ -4,29 +4,31 @@ import {useTranslation} from "react-i18next";
 import {Button, ButtonTheme} from "shared/ui/Button/Button";
 import {Input} from "shared/ui/Input";
 import {memo, useCallback} from "react";
-import {useDispatch, useSelector} from "react-redux";
 import {loginActions, loginReducer} from "../../model/slice/loginSlice";
 import {loginByUserName} from "../../model/services/loginByUserName/loginByUserName";
 import {Text} from "shared/ui/Text";
 import {TextTheme} from "shared/ui/Text/ui/Text";
 import {getLoginError, getLoginIsLoading, getPassword, getUserName} from "features/AuthByUsername";
 import {DynamicModuleLoader, ReducerList} from "shared/lib/components/DynamicModuleLoader";
-
+import {useAppDispatch} from "shared/lib/hooks/useAppDispatch";
+import {useAppSelector} from "shared/lib/hooks/useAppSelector";
 
 export interface LoginFormProps {
     className?: string;
+    onSuccess?: () => void;
 }
 
 const initialReducers: ReducerList = {
     loginForm: loginReducer,
 };
 
-const LoginForm = ({className}: LoginFormProps) => {
-    const dispatch = useDispatch();
-    const username = useSelector(getUserName);
-    const password = useSelector(getPassword);
-    const isLoading = useSelector(getLoginIsLoading);
-    const error = useSelector(getLoginError);
+const LoginForm = ({className, onSuccess}: LoginFormProps) => {
+    const dispatch = useAppDispatch();
+    const username = useAppSelector(getUserName);
+
+    const password = useAppSelector(getPassword);
+    const isLoading = useAppSelector(getLoginIsLoading);
+    const error = useAppSelector(getLoginError);
     const {t} = useTranslation();
 
 
@@ -39,9 +41,13 @@ const LoginForm = ({className}: LoginFormProps) => {
     }, [dispatch]);
 
 
-    const onLoginClick = useCallback(() => {
-        dispatch(loginByUserName({username, password}));
-    }, [dispatch, password, username]);
+    const onLoginClick = useCallback(async () => {
+        const result = await dispatch(loginByUserName({username, password}));
+        if (result.meta.requestStatus === "fulfilled") {
+            console.log(result);
+            onSuccess();
+        }
+    }, [dispatch, onSuccess, password, username]);
 
     return (
         // eslint-disable-next-line i18next/no-literal-string
