@@ -1,4 +1,4 @@
-import {configureStore, ReducersMapObject} from "@reduxjs/toolkit";
+import {Action, configureStore, ReducersMapObject, ThunkDispatch} from "@reduxjs/toolkit";
 import {ReduxStoreWithManager, StateSchema} from "app/providers/StoreProvider/config/StateSchema";
 import {counterReducer} from "entities/Counter/model/slice/counterSlice";
 import {userReducer} from "entities/User";
@@ -25,3 +25,12 @@ export function createReduxStore(initialState?: StateSchema, asyncReducer?: Redu
 
     return store;
 }
+
+const store = createReduxStore();
+export type RootState = ReturnType<typeof store.getState>
+export type AppDispatch = ThunkDispatch<RootState, undefined, Action>
+
+
+// export type AppDispatch = ReturnType<typeof createReduxStore>["dispatch"];
+
+
