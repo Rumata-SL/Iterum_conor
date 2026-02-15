@@ -10,6 +10,10 @@ module.exports = {
         "plugin:react/recommended",
         "plugin:i18next/recommended",
     ],
+    globals: {
+        __IS_DEV__: true,
+        __API__: true,
+    },
     "overrides": [
         {
             "env": {
@@ -74,6 +78,7 @@ module.exports = {
         "@typescript-eslint/no-unused-vars": ["warn", {
             argsIgnorePattern: "^_",
             varsIgnorePattern: "^_",
-        }]
+        }],
+        "no-undef": "off",
     }
 };

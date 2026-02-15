@@ -13,27 +13,50 @@ export default {
 
 } as ComponentMeta<typeof ProfilePage>;
 
-const Template: ComponentStory<typeof ProfilePage> = () =>
-    <ProfilePage/>;
+const Template: ComponentStory<typeof ProfilePage> = (args) =>
+    <ProfilePage {...args}/>;
 
 export const ProfilePageLight = Template.bind({});
 ProfilePageLight.args = {
     children: "ProfilePage",
-    theme: Theme.LIGHT
 };
 ProfilePageLight.decorators = [StoreDecorator({
+
     profile: {
         isLoading: false,
+        error: undefined,
+        readonly: false,
+        data: undefined,
     }
 })];
 
 export const ProfilePageDark = Template.bind({});
 ProfilePageDark.args = {
     children: "ProfilePage",
-    theme: Theme.DARK
+
 };
 ProfilePageDark.decorators = [StoreDecorator({
+
     profile: {
         isLoading: false,
+        error: undefined,
+        readonly: false,
+        data: undefined,
+    },
+}), ThemeDecorator(Theme.DARK)];
+
+export const ProfilePageWithData = Template.bind({});
+ProfilePageWithData.args = {
+    children: "ProfilePage",
+};
+ProfilePageWithData.decorators = [StoreDecorator({
+    profile: {
+        isLoading: false,
+        error: undefined,
+        readonly: false,
+        data: {
+            firstName: "John",
+            lastName: "Doe"
+        }
     }
 }), ThemeDecorator(Theme.DARK)];

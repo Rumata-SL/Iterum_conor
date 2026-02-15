@@ -1,6 +1,6 @@
 import {classNames} from "shared/lib/classNames/classNames";
 import cls from "./Sidebar.module.scss";
-import {memo, useState} from "react";
+import {memo, ReactNode, useState} from "react";
 import {Button, ButtonSize, ButtonTheme} from "shared/ui/Button/Button";
 import {LangSwitcher} from "shared/ui/LangSwitcher";
 import {ThemeSwitcher} from "shared/ui/ThemeSwitcher";
@@ -9,6 +9,7 @@ import {SidebarItem} from "widgets/Sidebar/ui/SidebarItem/SidebarItem";
 
 export interface SidebarProps {
     className?: string;
+    children?: ReactNode;
 }
 
 export const Sidebar = memo(({className}: SidebarProps) => {

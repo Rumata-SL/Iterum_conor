@@ -8,7 +8,7 @@ const initialState: LoginSchema = {
     username: "",
     password: "",
     isLoading: false,
-    error: null,
+    error: undefined,
 };
 
 const loginSlice = createSlice({
@@ -26,14 +26,14 @@ const loginSlice = createSlice({
         builder
             .addCase(loginByUserName.pending, (state) => {
                 state.isLoading = true;
-                state.error = null;
+                state.error = undefined;
             })
             .addCase(loginByUserName.fulfilled, (state, action: PayloadAction<User>) => {
                 state.username = action.payload.username;
                 state.isLoading = false;
                 // Add user to the state array
             })
-            .addCase(loginByUserName.rejected, (state, action: PayloadAction<string>) => {
+            .addCase(loginByUserName.rejected, (state, action: PayloadAction<string | undefined>) => {
                 state.isLoading = false;
                 state.error = action.payload;
             });
