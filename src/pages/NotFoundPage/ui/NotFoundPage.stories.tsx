@@ -20,12 +20,10 @@ const Template: ComponentStory<typeof NotFoundPage> = (args) =>
 export const NotFoundPageLight = Template.bind({});
 NotFoundPageLight.args = {
     children: "NotFoundPage",
-    theme: Theme.LIGHT
 };
 export const NotFoundPageDark = Template.bind({});
 NotFoundPageDark.args = {
     children: "NotFoundPage",
-    theme: Theme.DARK
 };
 
 NotFoundPageDark.decorators = [ThemeDecorator(Theme.DARK)];

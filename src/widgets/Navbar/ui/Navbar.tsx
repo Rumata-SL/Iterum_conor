@@ -2,7 +2,7 @@ import {classNames} from "shared/lib/classNames/classNames";
 import cls from "./Navbar.module.scss";
 import {useTranslation} from "react-i18next";
 import {Button, ButtonTheme} from "shared/ui/Button/Button";
-import React, {useCallback, useState} from "react";
+import React, {ReactNode, useCallback, useState} from "react";
 import {LoginModal} from "features/AuthByUsername";
 import {useDispatch} from "react-redux";
 import {getUserAuthData, userActions} from "entities/User";
@@ -10,6 +10,7 @@ import {useAppSelector} from "shared/lib/hooks/useAppSelector";
 
 export interface NavbarProps {
     className?: string;
+    children?: ReactNode;
 }
 
 export const Navbar = ({className}: NavbarProps) => {

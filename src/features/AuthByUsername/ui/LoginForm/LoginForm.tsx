@@ -45,7 +45,7 @@ const LoginForm = ({className, onSuccess}: LoginFormProps) => {
         const result = await dispatch(loginByUserName({username, password}));
         if (result.meta.requestStatus === "fulfilled") {
             console.log(result);
-            onSuccess();
+            onSuccess?.();
         }
     }, [dispatch, onSuccess, password, username]);
 
