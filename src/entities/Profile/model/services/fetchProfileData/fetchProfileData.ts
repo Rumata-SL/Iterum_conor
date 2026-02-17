@@ -1,6 +1,6 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import {ThunkConfig} from "app/providers/StoreProvider";
-import {Profile} from "../types/profile";
+import {Profile} from "../../types/profile";
 
 
 export const fetchProfileData = createAsyncThunk<Profile, void, ThunkConfig<string>>(
@@ -12,7 +12,7 @@ export const fetchProfileData = createAsyncThunk<Profile, void, ThunkConfig<stri
             return response.data;
 
         } catch (e) {
-            return rejectWithValue("Вы ввели неправильный логин или пароль");
+            return rejectWithValue("Произошла непредвиденная ошибка");
         }
 
     },

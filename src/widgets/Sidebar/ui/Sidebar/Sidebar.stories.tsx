@@ -3,6 +3,7 @@ import {ComponentMeta, ComponentStory} from "@storybook/react";
 import {ThemeDecorator} from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import {Theme} from "app/providers/ThemeProvider";
 import {Sidebar} from "./Sidebar";
+import {StoreDecorator} from "shared/config/storybook/StoreDecorator/StoreDecorator";
 
 export default {
     title: "widgets/Sidebar",
@@ -21,8 +22,11 @@ export const SidebarLight = Template.bind({});
 SidebarLight.args = {
     children: "Sidebar",
 };
+SidebarLight.decorators = [StoreDecorator({})];
+
 export const SidebarDark = Template.bind({});
 SidebarDark.args = {
     children: "Sidebar",
 };
-SidebarDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+SidebarDark.decorators = [StoreDecorator({}), ThemeDecorator(Theme.DARK)];

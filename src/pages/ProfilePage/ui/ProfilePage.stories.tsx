@@ -19,6 +19,7 @@ const Template: ComponentStory<typeof ProfilePage> = (args) =>
 export const ProfilePageLight = Template.bind({});
 ProfilePageLight.args = {
     children: "ProfilePage",
+    disableApiCalls: true,
 };
 ProfilePageLight.decorators = [StoreDecorator({
 
@@ -33,6 +34,7 @@ ProfilePageLight.decorators = [StoreDecorator({
 export const ProfilePageDark = Template.bind({});
 ProfilePageDark.args = {
     children: "ProfilePage",
+    disableApiCalls: true,
 
 };
 ProfilePageDark.decorators = [StoreDecorator({
@@ -48,6 +50,7 @@ ProfilePageDark.decorators = [StoreDecorator({
 export const ProfilePageWithData = Template.bind({});
 ProfilePageWithData.args = {
     children: "ProfilePage",
+    disableApiCalls: true,
 };
 ProfilePageWithData.decorators = [StoreDecorator({
     profile: {
