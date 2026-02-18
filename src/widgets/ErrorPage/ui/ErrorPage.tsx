@@ -2,9 +2,11 @@ import {classNames} from "shared/lib/classNames/classNames";
 import cls from "./ErrorPage.module.scss";
 import {useTranslation} from "react-i18next";
 import {Button} from "shared/ui/Button/Button";
+import {ReactNode} from "react";
 
 export interface ErrorPageProps {
     className?: string;
+    children?: ReactNode;
 }
 
 export const ErrorPage = ({className}: ErrorPageProps) => {
