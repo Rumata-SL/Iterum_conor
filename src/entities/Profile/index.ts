@@ -8,4 +8,5 @@ export {getProfileIsLoading} from "./model/selectors/getProfileIsLoading/getProf
 export {getProfileError} from "./model/selectors/getProfileError/getProfileError";
 export {getProfileReadOnly} from "./model/selectors/getProfileReadOnly/getProfileReadOnly";
 export {getIsChangeForm} from "./model/selectors/getIsChangeForm/getIsChangeForm";
+export {getProfileValidateErrors} from "./model/selectors/getProfileValidateErrors/getProfileValidateErrors";
 export {ProfileCard} from "./ui/ProfileCard/ProfileCard";
