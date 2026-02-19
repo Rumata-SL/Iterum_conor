@@ -16,11 +16,11 @@ export interface ProfileCardProps {
     isLoading?: boolean;
     error?: string;
     readOnly?: boolean;
-    handleTextChange: (
+    handleTextChange?: (
         field: ProfileKey,
         value: string
     ) => void;
-    handleNumberChange: (
+    handleNumberChange?: (
         field: ProfileKey,
         value: string
     ) => void;
@@ -64,21 +64,21 @@ export const ProfileCard = (props: ProfileCardProps) => {
                 <Input
                     className={cls.input}
                     value={form?.firstName}
-                    onChange={(e) => handleTextChange("firstName", e)}
+                    onChange={(e) => handleTextChange?.("firstName", e)}
                     placeholder={t("Ваше имя")}
                     readOnly={readOnly}
                 />
                 <Input
                     className={cls.input}
                     value={form?.lastName}
-                    onChange={(e) => handleTextChange("lastName", e)}
+                    onChange={(e) => handleTextChange?.("lastName", e)}
                     placeholder={t("Ваше имя")}
                     readOnly={readOnly}
                 />
                 <Input
                     className={cls.input}
                     value={form?.age}
-                    onChange={(e) => handleNumberChange("age", e)}
+                    onChange={(e) => handleNumberChange?.("age", e)}
                     placeholder={t("Ваша фамилия")}
                     readOnly={readOnly}
                     number
@@ -86,34 +86,34 @@ export const ProfileCard = (props: ProfileCardProps) => {
                 <Input
                     className={cls.input}
                     value={form?.city}
-                    onChange={(e) => handleTextChange("city", e)}
+                    onChange={(e) => handleTextChange?.("city", e)}
                     placeholder={t("Город")}
                     readOnly={readOnly}
                 />
                 <Input
                     className={cls.input}
                     value={form?.userName}
-                    onChange={(e) => handleTextChange("userName", e)}
+                    onChange={(e) => handleTextChange?.("userName", e)}
                     placeholder={t("Имя пользователя")}
                     readOnly={readOnly}
                 />
                 <Input
                     className={cls.input}
                     value={form?.avatar}
-                    onChange={(e) => handleTextChange("avatar", e)}
+                    onChange={(e) => handleTextChange?.("avatar", e)}
                     placeholder={t("Аватар")}
                     readOnly={readOnly}
                 />
                 <CurrencySelect
                     className={cls.input}
                     value={form?.currency}
-                    onChange={(e) => handleTextChange("currency", e)}
+                    onChange={(e) => handleTextChange?.("currency", e)}
                     readOnly={readOnly}
                 />
                 <CountrySelect
                     className={cls.input}
                     value={form?.country}
-                    onChange={(e) => handleTextChange("country", e)}
+                    onChange={(e) => handleTextChange?.("country", e)}
                     readOnly={readOnly}
                 />
             </div>
