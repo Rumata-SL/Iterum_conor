@@ -23,14 +23,13 @@ import {ValidateProfileError} from "entities/Profile/model/types/profile";
 export interface ProfilePageProps {
     className?: string;
     children?: ReactNode;
-    disableApiCalls?: boolean;
 }
 
 const reducers: ReducerList = {
     profile: profileReducer,
 };
 
-const ProfilePage = ({className, disableApiCalls}: ProfilePageProps) => {
+const ProfilePage = ({className}: ProfilePageProps) => {
     const {t} = useTranslation("profile");
     const dispatch = useAppDispatch();
     const form = useAppSelector(getProfileForm);
@@ -49,10 +48,10 @@ const ProfilePage = ({className, disableApiCalls}: ProfilePageProps) => {
 
 
     useEffect(() => {
-        if (!disableApiCalls) {
+        if (__PROJECT__ !== "storybook") {
             dispatch(fetchProfileData());
         }
-    }, [dispatch, disableApiCalls]);
+    }, [dispatch]);
 
     const handleTextChange = useCallback((
         field: ProfileKey,

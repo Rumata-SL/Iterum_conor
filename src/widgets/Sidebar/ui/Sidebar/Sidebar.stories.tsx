@@ -22,11 +22,29 @@ export const SidebarLight = Template.bind({});
 SidebarLight.args = {
     children: "Sidebar",
 };
-SidebarLight.decorators = [StoreDecorator({})];
+SidebarLight.decorators = [StoreDecorator({
+    user: {
+        authData: {}
+    }
+})];
 
 export const SidebarDark = Template.bind({});
 SidebarDark.args = {
     children: "Sidebar",
 };
 
-SidebarDark.decorators = [StoreDecorator({}), ThemeDecorator(Theme.DARK)];
+SidebarDark.decorators = [StoreDecorator({
+    user: {
+        authData: {}
+    }
+}), ThemeDecorator(Theme.DARK)];
+
+
+export const SidebarAuth = Template.bind({});
+SidebarAuth.args = {
+    children: "Sidebar",
+};
+
+SidebarAuth.decorators = [StoreDecorator({
+    user: {}
+}), ThemeDecorator(Theme.DARK)];
