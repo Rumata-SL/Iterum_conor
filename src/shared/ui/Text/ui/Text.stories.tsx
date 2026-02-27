@@ -1,6 +1,6 @@
 import {ComponentMeta, ComponentStory} from "@storybook/react";
 import React from "react";
-import {Text, TextTheme} from "./Text";
+import {Text, TextSize, TextTheme} from "./Text";
 import {ThemeDecorator} from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import {Theme} from "app/providers/ThemeProvider";
 
@@ -19,7 +19,16 @@ Primary.args = {
     title: "Title Lorem",
     text: `Lorem ipsum dolor sit amet,
      consectetur adipisicing elit.
-      Asperiores eligendi et exercitationem`
+      Asperiores eligendi et exercitationem`,
+};
+
+export const PrimarySizeL = Template.bind({});
+PrimarySizeL.args = {
+    title: "Title Lorem",
+    text: `Lorem ipsum dolor sit amet,
+     consectetur adipisicing elit.
+      Asperiores eligendi et exercitationem`,
+    size: TextSize.L,
 };
 
 export const PrimaryDark = Template.bind({});

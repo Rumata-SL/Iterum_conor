@@ -44,9 +44,9 @@ WithError.decorators = [StoreDecorator({
     }
 }), ThemeDecorator(Theme.DARK)];
 
-export const Loading = Template.bind({});
-Loading.args = {};
-Loading.decorators = [StoreDecorator({
+export const LoadingLoginForm = Template.bind({});
+LoadingLoginForm.args = {};
+LoadingLoginForm.decorators = [StoreDecorator({
     loginForm: {
         isLoading: true,
     }
