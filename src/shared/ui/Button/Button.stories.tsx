@@ -10,9 +10,6 @@ export default {
     argTypes: {
         backgroundColor: {control: "color"},
     },
-    // parameters: {
-    //     layout: "centered", // ← центрирует компонент по горизонтали и вертикали
-    // },
 } as ComponentMeta<typeof Button>;
 
 const Template: ComponentStory<typeof Button> = (args) => <div
