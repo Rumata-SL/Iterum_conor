@@ -3,6 +3,7 @@ import {Currency} from "entities/Currency";
 import {Country} from "entities/Country";
 
 const data = {
+    id: "1",
     firstName: "John",
     lastName: "Snow",
     age: 36,
