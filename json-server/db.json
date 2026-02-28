@@ -101,6 +101,24 @@
       "text": "another comment about post 1",
       "articleId": "1",
       "userId": "2"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "super",
+      "id": "o7AKG9-"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "norm",
+      "id": "KwETx2N"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "привет мир",
+      "id": "aawcQZ5"
     }
   ],
   "users": [
@@ -109,24 +127,38 @@
       "username": "admin",
       "password": "123",
       "role": "ADMIN",
-      "avatar": "https://png.pngtree.com/png-vector/20231019/ourmid/pngtree-user-profile-avatar-png-image_10211467.png"
+      "avatar": "https://imgcdn.stablediffusionweb.com/2024/11/12/c99ef398-ae0a-4491-99a2-629c88ca1c3c.jpg"
     },
     {
       "id": "2",
       "username": "user",
       "password": "345",
       "role": "USER",
-      "avatar": "https://static.vecteezy.com/system/resources/thumbnails/048/216/761/small_2x/modern-male-avatar-with-black-hair-and-hoodie-illustration-free-png.png"
+      "avatar": "https://png.pngtree.com/png-vector/20231019/ourmid/pngtree-user-profile-avatar-png-image_10211467.png"
     }
   ],
-  "profile": {
-    "firstName": "John",
-    "lastName": "Snow",
-    "age": 35,
-    "currency": "RUB",
-    "country": "Russia",
-    "city": "Winterfall",
-    "userName": "admin",
-    "avatar": "https://imgcdn.stablediffusionweb.com/2024/11/12/c99ef398-ae0a-4491-99a2-629c88ca1c3c.jpg"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "firstName": "John",
+      "lastName": "Snow",
+      "age": 35,
+      "currency": "EU",
+      "country": "Germany",
+      "city": "Winterfall",
+      "userName": "admin",
+      "avatar": "https://imgcdn.stablediffusionweb.com/2024/11/12/c99ef398-ae0a-4491-99a2-629c88ca1c3c.jpg"
+    },
+    {
+      "id": "2",
+      "firstName": "Иван",
+      "lastName": "Снег",
+      "age": 33,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Ьосква",
+      "userName": "user",
+      "avatar": "https://png.pngtree.com/png-vector/20231019/ourmid/pngtree-user-profile-avatar-png-image_10211467.png"
+    }
+  ]
 }

@@ -9,6 +9,15 @@ const data = [
         text: "comment",
         user: {
             id: "1",
+            username: "admin",
+            avatar: avatarIcon
+        }
+    },
+    {
+        id: "2",
+        text: "comment 2",
+        user: {
+            id: "2",
             username: "user",
             avatar: avatarIcon
         }
@@ -16,7 +25,7 @@ const data = [
 ];
 
 export default {
-    title: "entities/CommentList",
+    title: "entities/Comment/CommentList",
     component: CommentList,
     argTypes: {
         backgroundColor: {control: "color"},

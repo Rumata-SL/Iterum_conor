@@ -2,7 +2,7 @@ import {classNames} from "shared/lib/classNames/classNames";
 import cls from "./ArticleDetail.module.scss";
 import {DynamicModuleLoader, ReducerList} from "shared/lib/components/DynamicModuleLoader";
 import {useAppDispatch} from "shared/lib/hooks/useAppDispatch";
-import {useCallback, useEffect} from "react";
+import {useCallback} from "react";
 import {fetchArticleById} from "../../model/services/fetchArticleById/fetchArticleById";
 import {articleDetailsReducer} from "../../model/slice/articleDetailsSlice";
 import {useAppSelector} from "shared/lib/hooks/useAppSelector";
@@ -22,6 +22,7 @@ import {ArticleBlock, ArticleBlockType} from "../../model/types/article";
 import {ArticleTextBlockComponent} from "entities/Article/ui/ArticleTextBlockComponent/ArticleTextBlockComponent";
 import {ArticleCodeBlockComponent} from "entities/Article/ui/ArticleCodeBlockComponent/ArticleCodeBlockComponent";
 import {ArticleImageBlockComponent} from "entities/Article/ui/ArticleImageBlockComponent/ArticleImageBlockComponent";
+import {useInitialEffect} from "shared/lib/hooks/useInitialEffect";
 
 
 export interface ArticleDetailProps {
@@ -38,14 +39,12 @@ export const ArticleDetail = (props: ArticleDetailProps) => {
     const dispatch = useAppDispatch();
     const article = useAppSelector(getArticleDetailsData);
     const isLoading = useAppSelector(getArticleDetailsIsLoading);
-    // const isLoading = true;
     const error = useAppSelector(getArticleDetailsError);
 
-    useEffect(() => {
-        if (__PROJECT__ !== "storybook") {
-            dispatch(fetchArticleById(id));
-        }
-    }, [dispatch, id]);
+
+    useInitialEffect(() => {
+        dispatch(fetchArticleById(id));
+    });
 
     const renderBlock = useCallback((block: ArticleBlock) => {
         switch (block.type) {
@@ -95,7 +94,7 @@ export const ArticleDetail = (props: ArticleDetailProps) => {
     }
 
     return (
-        <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+        <DynamicModuleLoader reducers={reducers}>
             <div className={classNames(cls.ArticleDetail, {}, [className])}>
                 {content}
             </div>
