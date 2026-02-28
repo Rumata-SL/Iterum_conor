@@ -9,6 +9,7 @@ const defaultAsyncReducers: ReducerList = {
     loginForm: loginReducer,
     profile: profileReducer,
     articleDetails: articleDetailsReducer,
+    articleDetailsComment: articleDetailsReducer,
 };
 
 

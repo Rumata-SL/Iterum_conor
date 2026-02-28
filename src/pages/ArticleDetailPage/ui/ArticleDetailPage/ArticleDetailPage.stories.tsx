@@ -81,5 +81,18 @@ PrimaryArticleDetailPage.args = {};
 PrimaryArticleDetailPage.decorators = [StoreDecorator({
     articleDetails: {
         data: article,
+    },
+    articleDetailsComment: {
+        ids: ["1"],
+        entities: {
+            ["1"]: {
+                id: "1",
+                text: "Text Lorem",
+                user: {
+                    id: "1",
+                    username: "username",
+                }
+            }
+        }
     }
 })];
