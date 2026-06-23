@@ -1,22 +1,21 @@
 import {ComponentMeta, ComponentStory} from "@storybook/react";
 import React from "react";
-import ArticleDetailPage from "./ArticleDetailPage";
+import {ArticleListItem} from "./ArticleListItem";
 import {Article} from "entities/Article";
 import {ArticleBlockType, ArticleType} from "entities/Article/model/types/article";
-import {StoreDecorator} from "shared/config/storybook/StoreDecorator/StoreDecorator";
 
 const article: Article = {
     id: "1",
     title: "Javascript news",
     subtitle: "Что нового в JS за 2022 год?",
     img: "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-    views: 1022,
-    createdAt: "26.02.2022",
     user: {
         id: "1",
         username: "admin",
         avatar: "https://imgcdn.stablediffusionweb.com/2024/11/12/c99ef398-ae0a-4491-99a2-629c88ca1c3c.jpg"
     },
+    views: 1022,
+    createdAt: "26.02.2022",
     type: [
         ArticleType.IT
     ],
@@ -70,34 +69,18 @@ const article: Article = {
 };
 
 export default {
-    title: "pages/ArticleDetailPage",
-    component: ArticleDetailPage,
+    title: "shared/ArticleListItem",
+    component: ArticleListItem,
     argTypes: {
         backgroundColor: {control: "color"},
     },
-} as ComponentMeta<typeof ArticleDetailPage>;
+} as ComponentMeta<typeof ArticleListItem>;
 
-const Template: ComponentStory<typeof ArticleDetailPage> = (args) =>
-    <ArticleDetailPage {...args} />;
+const Template: ComponentStory<typeof ArticleListItem> = (args) =>
+    <ArticleListItem {...args} />;
 
-export const PrimaryArticleDetailPage = Template.bind({});
-PrimaryArticleDetailPage.args = {};
+export const PrimaryArticleListItem = Template.bind({});
+PrimaryArticleListItem.args = {
+    article: article
 
-PrimaryArticleDetailPage.decorators = [StoreDecorator({
-    articleDetails: {
-        data: article,
-    },
-    articleDetailsComment: {
-        ids: ["1"],
-        entities: {
-            ["1"]: {
-                id: "1",
-                text: "Text Lorem",
-                user: {
-                    id: "1",
-                    username: "username",
-                }
-            }
-        }
-    }
-})];
+};

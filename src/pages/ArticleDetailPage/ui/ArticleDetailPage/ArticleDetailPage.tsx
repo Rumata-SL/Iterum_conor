@@ -2,7 +2,7 @@ import {classNames} from "shared/lib/classNames/classNames";
 import cls from "./ArticleDetailPage.module.scss";
 import {useTranslation} from "react-i18next";
 import {ArticleDetail} from "entities/Article";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {Text} from "shared/ui/Text";
 import {CommentList} from "entities/Comment";
 import {DynamicModuleLoader, ReducerList} from "shared/lib/components/DynamicModuleLoader";
@@ -20,6 +20,8 @@ import {
 import {AddCommentForm} from "features/AddCommentForm";
 import {useCallback} from "react";
 import {addCommentForArticle} from "pages/ArticleDetailPage/model/services/addCommentForArticle/addCommentForArticle";
+import {Button, ButtonTheme} from "shared/ui/Button/Button";
+import {RoutePath} from "shared/config/routeConfig/routeConfig";
 
 export interface ArticleDetailPageProps {
     className?: string;
@@ -36,6 +38,11 @@ const ArticleDetailPage = (props: ArticleDetailPageProps) => {
     const dispatch = useAppDispatch();
     const comments = useAppSelector(getArticleComments.selectAll);
     const isLoadingComments = useAppSelector(getArticleDetailsCommentIsLoading);
+    const navigate = useNavigate();
+
+    const onBackToList = useCallback(() => {
+        navigate(RoutePath.articles);
+    }, [navigate]);
 
     const onSendComment = useCallback((text: string) => {
         dispatch(addCommentForArticle(text));
@@ -56,6 +63,7 @@ const ArticleDetailPage = (props: ArticleDetailPageProps) => {
     return (
         <DynamicModuleLoader reducers={reducers}>
             <div className={classNames(cls.ArticleDetailPage, {}, [className])}>
+                <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>{t("Назад к списку")}</Button>
                 <ArticleDetail id={id}/>
                 <Text className={cls.commentTitle} title={t("Комментарии")}/>
                 <AddCommentForm onSendComment={onSendComment}/>
