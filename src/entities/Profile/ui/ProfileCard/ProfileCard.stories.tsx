@@ -16,6 +16,7 @@ export default {
 } as ComponentMeta<typeof ProfileCard>;
 
 const form = {
+    id: "1",
     firstName: "John",
     lastName: "Snow",
     age: 35,

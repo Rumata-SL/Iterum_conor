@@ -11,6 +11,11 @@ describe("fetchArticleById", () => {
         img: "https://teknotower.com/wp-content/uploads/2020/11/js.png",
         views: 1022,
         createdAt: "26.02.2022",
+        user: {
+            id: "1",
+            username: "admin",
+            avatar: "https://imgcdn.stablediffusionweb.com/2024/11/12/c99ef398-ae0a-4491-99a2-629c88ca1c3c.jpg"
+        },
         type: [
             ArticleType.IT
         ],

@@ -1,7 +1,7 @@
 import {DynamicModuleLoader, ReducerList} from "shared/lib/components/DynamicModuleLoader";
 import {profileActions, profileReducer} from "entities/Profile/model/slice/profileSlice";
 import {useAppDispatch} from "shared/lib/hooks/useAppDispatch";
-import {ReactNode, useCallback, useEffect} from "react";
+import {ReactNode, useCallback} from "react";
 import {
     fetchProfileData,
     getProfileError,
@@ -19,6 +19,8 @@ import {Text} from "shared/ui/Text";
 import {TextTheme} from "shared/ui/Text/ui/Text";
 import {useTranslation} from "react-i18next";
 import {ValidateProfileError} from "entities/Profile/model/types/profile";
+import {useInitialEffect} from "shared/lib/hooks/useInitialEffect";
+import {useParams} from "react-router-dom";
 
 export interface ProfilePageProps {
     className?: string;
@@ -37,6 +39,7 @@ const ProfilePage = ({className}: ProfilePageProps) => {
     const error = useAppSelector(getProfileError);
     const readOnly = useAppSelector(getProfileReadOnly);
     const validateErrors = useAppSelector(getProfileValidateErrors);
+    const {id} = useParams<{ id: string }>();
 
     const validateErrorTranslates = {
         [ValidateProfileError.INCORRECT_USER_DATA]: t("Имя и фамилия обязательны"),
@@ -47,11 +50,11 @@ const ProfilePage = ({className}: ProfilePageProps) => {
     };
 
 
-    useEffect(() => {
-        if (__PROJECT__ !== "storybook") {
-            dispatch(fetchProfileData());
+    useInitialEffect(() => {
+        if (id) {
+            dispatch(fetchProfileData(id));
         }
-    }, [dispatch]);
+    });
 
     const handleTextChange = useCallback((
         field: ProfileKey,
@@ -65,7 +68,7 @@ const ProfilePage = ({className}: ProfilePageProps) => {
         dispatch(profileActions.updateProfileField({field, value: numValue}));
     };
 
-    return (<DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+    return (<DynamicModuleLoader reducers={reducers}>
         <div className={classNames("", {}, [className])}>
             <ProfilePageHeader/>
             {validateErrors?.length && validateErrors?.map((err) => (
